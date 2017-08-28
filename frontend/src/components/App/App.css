@@ -5,6 +5,11 @@
   width: 100vw;
 }
 
+input {
+  outline:none;
+  border:none;
+}
+
 .main-wrapper{
   position: absolute;
   top: 50%;
