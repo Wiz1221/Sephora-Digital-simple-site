@@ -4,12 +4,12 @@ import thunk from 'redux-thunk';
 // import createHistory from 'history/createBrowserHistory';
 
 // Reducers
-import UserReducer from '../Reducers/UserReducer';
+// import UserReducer from '../Reducers/UserReducer';
 
 export let initStore = () => {
 
   const reducer = combineReducers({
-    user: UserReducer,
+    // user: UserReducer,
   });
 
   const store = createStore( reducer,

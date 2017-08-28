@@ -1,0 +1,17 @@
+.form-text-copy{
+  	height: 100px;
+    width: 335px;
+    color: #000000;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.textbox-multi {
+  height: 128px !important;
+}

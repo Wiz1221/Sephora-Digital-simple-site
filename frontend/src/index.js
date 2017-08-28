@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import registerServiceWorker from './registerServiceWorker';
 
 // Import components
 import App from './components/App/App';
@@ -10,11 +11,11 @@ import './animation.css';
 
 // Redux
 import { Provider } from 'react-redux';
-import { initStore } from './store/Store';
+import { initStore } from './store/store';
 
 const store = initStore();
 
-import registerServiceWorker from './registerServiceWorker';
+
 
 ReactDOM.render(
   <Provider store={store}>

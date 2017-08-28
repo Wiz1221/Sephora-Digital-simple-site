@@ -1,0 +1,66 @@
+.input-field-container{
+  text-align: left;
+  margin-bottom: 20px;
+
+}
+
+.input-field-container label {
+  	height: 14px;
+    width: 255px;
+    color: #001CFF;
+    font-family: Arial;
+    font-size: 12px;
+    line-height: 14px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.textbox {
+  position: relative;
+  height: 40px;
+  width: 355px;
+  border: 1px solid #CCCCCC;
+}
+
+.textbox:focus{
+  border: 1px solid #000000;
+}
+
+.form-title-large{
+	height: 16px;
+  width: 335px;
+  color: #AAAAAA;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 19px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 12px;
+}
+
+.form-title-small {
+  height: 11px;
+  width: 335px;
+  color: #AAAAAA;
+  font-size: 11px;
+  font-weight: 300;
+  line-height: 13px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 6px;
+  margin-bottom: 2px;
+}
+
+.form-text {
+  height: 16px;
+  width: 335px;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 19px;
+  outline: none;
+  border: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
