@@ -27,7 +27,7 @@ class MultipleLine extends Component{
 
   render(){
     return(
-      <div className="multiple-line-container">
+      <div className="multiple-line-container component-container">
         <div className="input-field-container">
           <label htmlFor="input-multiple-line">Input filed with multiple lines</label>
           <div className="textbox-multi textbox">

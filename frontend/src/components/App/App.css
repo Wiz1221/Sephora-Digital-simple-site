@@ -40,3 +40,7 @@ input {
 .input-wrapper {
   margin-top: 24.5px;
 }
+
+.component-container {
+  margin-bottom: 40px;
+}

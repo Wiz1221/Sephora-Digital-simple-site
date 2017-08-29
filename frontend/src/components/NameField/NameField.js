@@ -6,9 +6,10 @@ class NameField extends Component{
   constructor(props){
     super(props);
     this.state={
+      empty: '',
       filled:'Flora Wong',
-      typing:'',
-      focusClass:''
+      typing: '',
+      focusClass: ''
     }
   }
 
@@ -29,11 +30,17 @@ class NameField extends Component{
   render(){
 
     return(
-      <div className="name-field-container">
+      <div className="name-field-container component-container">
         <div className="input-field-container">
           <label htmlFor="empty">Empty Field</label>
           <div className="textbox">
-            <div className="form-title-large">Name</div>
+            <input className="form-title-large"
+                   type="text"
+                   name="empty"
+                   placeholder="Name"
+                   onChange={this.onChange}
+                   onFocus={this.onFocus}
+                   onBlur={this.onBlur}/>
           </div>
         </div>
         <div className="input-field-container">

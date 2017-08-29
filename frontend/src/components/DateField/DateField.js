@@ -16,7 +16,8 @@ class DateField extends Component{
   }
 
   onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    let num = e.target.value.replace(/[^0-9]/gi, '')
+    this.setState({ [e.target.name]: num });
   }
 
   onFocus = (e) => {
@@ -31,7 +32,7 @@ class DateField extends Component{
 
   render(){
     return(
-      <div className="date-field-container">
+      <div className="date-field-container component-container">
         <div className="input-field-container">
           <label htmlFor="date-field">Date fields</label>
           <div className="inner-container">
@@ -42,6 +43,7 @@ class DateField extends Component{
                        type="text"
                        name="birthDay"
                        placeholder="DD"
+                       maxLength={2}
                        value={this.state.birthDay}
                        onChange={this.onChange}
                        onFocus={this.onFocus}
@@ -52,6 +54,7 @@ class DateField extends Component{
                       type="text"
                       name="birthMonth"
                       placeholder="MM"
+                      maxLength={2}
                       value={this.state.birthMonth}
                       onChange={this.onChange}
                       onFocus={this.onFocus}
@@ -62,6 +65,7 @@ class DateField extends Component{
                        type="text"
                        name="birthYear"
                        placeholder="YYYY"
+                       maxLength={4}
                        value={this.state.birthYear}
                        onChange={this.onChange}
                        onFocus={this.onFocus}
@@ -75,6 +79,7 @@ class DateField extends Component{
                        type="text"
                        name="expiryDay"
                        placeholder="DD"
+                       maxLength={2}
                        value={this.state.expiryDay}
                        onChange={this.onChange}
                        onFocus={this.onFocus}
@@ -86,6 +91,7 @@ class DateField extends Component{
                       type="text"
                       name="expiryYear"
                       placeholder="YY"
+                      maxLength={2}
                       value={this.state.expiryYear}
                       onChange={this.onChange}
                       onFocus={this.onFocus}

@@ -38,9 +38,8 @@ class AutoFormatedSpace extends Component{
   }
 
   render(){
-    // const showNumber = this.formatSpace(this.state.creditCardNumber);
     return(
-      <div className="auto-formated-space-container">
+      <div className="auto-formated-space-container component-container">
         <div className="input-field-container">
           <label htmlFor="auto-formated-space">Input field with auto-formatted spaces</label>
           <div className="textbox">
