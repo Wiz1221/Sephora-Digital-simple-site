@@ -8,7 +8,8 @@ class Validation extends Component{
     super(props);
     this.state = {
       email:'',
-      emailError: false
+      emailError: false,
+      focusClass:''
     }
   }
 
@@ -17,6 +18,16 @@ class Validation extends Component{
     if(e.target.value.indexOf('@')<0 || e.target.value.indexOf('.com')<0){
       this.setState({ emailError: true });
     }
+  }
+
+  onFocus = (e) => {
+    e.preventDefault();
+    this.setState({ focusClass: e.target.parentElement.className })
+    e.target.parentElement.className += " change-textbox-border";
+  }
+
+  onBlur = (e) => {
+    e.target.parentElement.className = this.state.focusClass;
   }
 
   render(){
@@ -32,7 +43,13 @@ class Validation extends Component{
           <label htmlFor="validation">Validation</label>
           <div className="textbox">
             <small className="form-title-small">Email</small>
-            <input className="form-text" type="email" name="email-error" value={this.state.email} onChange={this.onChange}/>
+            <input className="form-text"
+                   type="email"
+                   name="email-error"
+                   value={this.state.email}
+                   onChange={this.onChange}
+                   onFocus={this.onFocus}
+                   onBlur={this.onBlur}/>
             {img}
           </div>
           {msg}
@@ -40,7 +57,13 @@ class Validation extends Component{
         <div className="input-field-container">
           <div className="textbox">
             <small className="form-title-small">Email</small>
-            <input className="form-text" type="email" name="email-valid" value={this.state.email} onChange={this.onChange}/>
+            <input className="form-text"
+                   type="email"
+                   name="email-valid"
+                   value={this.state.email}
+                   onChange={this.onChange}
+                   onFocus={this.onFocus}
+                   onBlur={this.onBlur}/>
             {img}
           </div>
           {msg}

@@ -6,12 +6,23 @@ class MultipleLine extends Component{
   constructor(props){
     super(props);
     this.state = {
-      multi:'Flora Wong has written a really long product review and this extends to many many lines such as this paragraph that you are reading now. KC also just broke ZY’s umbrella as I type. Hello, welcome to Sephora!'
+      multi:'Flora Wong has written a really long product review and this extends to many many lines such as this paragraph that you are reading now. KC also just broke ZY’s umbrella as I type. Hello, welcome to Sephora!',
+      focusClass:''
     }
   }
 
   onChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
+  }
+
+  onFocus = (e) => {
+    e.preventDefault();
+    this.setState({ focusClass: e.target.parentElement.className })
+    e.target.parentElement.className += " change-textbox-border";
+  }
+
+  onBlur = (e) => {
+    e.target.parentElement.className = this.state.focusClass;
   }
 
   render(){
@@ -27,7 +38,9 @@ class MultipleLine extends Component{
                       rows={3}
                       placeholder="type here"
                       value={this.state.multi}
-                      onChange={this.onChange}/>
+                      onChange={this.onChange}
+                      onFocus={this.onFocus}
+                      onBlur={this.onBlur}/>
           </div>
         </div>
       </div>

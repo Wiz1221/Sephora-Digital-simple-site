@@ -7,12 +7,23 @@ class NameField extends Component{
     super(props);
     this.state={
       filled:'Flora Wong',
-      typing:''
+      typing:'',
+      focusClass:''
     }
   }
 
   onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  onFocus = (e) => {
+    e.preventDefault();
+    this.setState({ focusClass: e.target.parentElement.className })
+    e.target.parentElement.className += " change-textbox-border";
+  }
+
+  onBlur = (e) => {
+    e.target.parentElement.className = this.state.focusClass;
   }
 
   render(){
@@ -29,14 +40,27 @@ class NameField extends Component{
           <label htmlFor="typing">Typing Field</label>
           <div className="textbox">
             <small className="form-title-small">Name</small>
-            <input className="form-text" type="text" name="typing" autoComplete="on" autoFocus onChange={this.onChange}/>
+            <input className="form-text"
+                   type="text"
+                   name="typing"
+                   autoComplete="on"
+                   autoFocus
+                   onChange={this.onChange}
+                   onFocus={this.onFocus}
+                   onBlur={this.onBlur}/>
           </div>
         </div>
         <div className="input-field-container">
           <label htmlFor="typing">Filled Field</label>
           <div className="textbox">
             <small className="form-title-small">Name</small>
-            <input className="form-text" type="text" name="filled" value={this.state.filled} onChange={this.onChange}/>
+            <input className="form-text"
+                   type="text"
+                   name="filled"
+                   value={this.state.filled}
+                   onChange={this.onChange}
+                   onFocus={this.onFocus}
+                   onBlur={this.onBlur}/>
           </div>
         </div>
       </div>

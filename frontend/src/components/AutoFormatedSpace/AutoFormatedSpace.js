@@ -6,12 +6,13 @@ class AutoFormatedSpace extends Component{
   constructor(props){
     super(props);
     this.state={
-      creditCardNumber: ''
+      creditCardNumber: '',
+      focusClass: ''
     }
   }
 
   onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: this.formatSpace(e.target.value) });
   }
 
   formatSpace = (value) => {
@@ -26,14 +27,30 @@ class AutoFormatedSpace extends Component{
     return parts.join(' ')
   }
 
+  onFocus = (e) => {
+    e.preventDefault();
+    this.setState({ focusClass: e.target.parentElement.className })
+    e.target.parentElement.className += " change-textbox-border";
+  }
+
+  onBlur = (e) => {
+    e.target.parentElement.className = this.state.focusClass;
+  }
+
   render(){
-    const showNumber = this.formatSpace(this.state.creditCardNumber);
+    // const showNumber = this.formatSpace(this.state.creditCardNumber);
     return(
       <div className="auto-formated-space-container">
         <div className="input-field-container">
           <label htmlFor="auto-formated-space">Input field with auto-formatted spaces</label>
           <div className="textbox">
-            <input className="form-title-large creditcard" type="text" name="creditCardNumber" value={showNumber} onChange={this.onChange}/>
+            <input className="form-title-large creditcard"
+                   type="text"
+                   name="creditCardNumber"
+                   value={this.state.creditCardNumber}
+                   onChange={this.onChange}
+                   onFocus={this.onFocus}
+                   onBlur={this.onBlur}/>
           </div>
         </div>
       </div>
