@@ -27,12 +27,12 @@ class DateField extends Component{
   }
 
   onChange = (e) => {
+    // only numbers can be stored and rendered on page
     let num = e.target.value.replace(/[^0-9]/gi, '')
     this.setState({ [e.target.name]: num });
   }
 
   onFocus = (e) => {
-    e.preventDefault();
     this.setState({
       focusClass: e.target.parentElement.className
      })

@@ -48,6 +48,10 @@ class Home extends Component {
     }
   }
 
+  // I was trying to go for separate components of each type of input fields
+  // so that they can be simply imported into other components when the project scales.
+  // all child components uses the same way to pass info to parent so that it is easier to manage the import
+  // personal opinion, not sure if correct practice, really appreciate enlightenment
   render() {
     return (
       <div className="App">

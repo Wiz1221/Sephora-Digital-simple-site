@@ -11,6 +11,7 @@ class Star extends Component {
     }
   }
 
+  // when hover over a star, all preceding stars will have corresponding classname (fa-star) in order to light up
   starEnter = (event) => {
     if(!this.state.starClicked){
       let stars = this.starParent.childNodes;
@@ -21,6 +22,7 @@ class Star extends Component {
     }
   }
 
+  // when leaving a star, all stars will remove className
   starLeave = (event) => {
     if(!this.state.starClicked){
       let stars = this.starParent.childNodes;
@@ -31,6 +33,7 @@ class Star extends Component {
     }
   }
 
+  // when a star is clicked, pass the rating value to parent component
   starClicked = (event) => {
     this.setState({
       starValue: event.target.dataset.rating,
@@ -39,6 +42,7 @@ class Star extends Component {
     this.props.passStarValue( event.target.dataset.rating)
   }
 
+  // when clear button is clicked, clear all stars and update parent's rating value with 0
   clearStar = () => {
     let stars = this.starParent.childNodes;
     stars.forEach((star,index) => {

@@ -27,7 +27,6 @@ class MultipleLine extends Component{
   }
 
   onFocus = (e) => {
-    e.preventDefault();
     this.setState({ focusClass: e.target.parentElement.className })
     e.target.parentElement.className += " change-textbox-border";
   }

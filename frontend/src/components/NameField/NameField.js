@@ -9,8 +9,7 @@ class NameField extends Component{
       empty: '',
       filled:'Flora Wong',
       typing: '',
-      focusClass: '',
-      submit: false
+      focusClass: ''
     }
   }
 
@@ -32,7 +31,6 @@ class NameField extends Component{
   }
 
   onFocus = (e) => {
-    e.preventDefault();
     this.setState({ focusClass: e.target.parentElement.className })
     e.target.parentElement.className += " change-textbox-border";
   }

@@ -11,40 +11,45 @@ class AutoFormatedSpace extends Component{
     }
   }
 
-componentWillReceiveProps(nextProps){
-  if(nextProps.submit){
-    this.passInfo()
+  // pass info to parent component when submit button in parent is clicked
+  componentWillReceiveProps(nextProps){
+    if(nextProps.submit){
+      this.passInfo()
+    }
   }
-}
 
-passInfo = () => {
-  const {creditCardNumber} = this.state;
-  this.props.storeInfo({creditCardNumber})
-}
+  passInfo = () => {
+    const {creditCardNumber} = this.state;
+    this.props.storeInfo({creditCardNumber})
+  }
 
+  // storing changes of input in local state
   onChange = (e) => {
+    // format spacings before saving in local state
     this.setState({ [e.target.name]: this.formatSpace(e.target.value) });
   }
 
   formatSpace = (value) => {
-    // replace all non-digits with ''
-    var v = value.replace(/[^0-9]/gi, '')
+    // replace all non-digits(regardless of casing) with ''
+    var v = value.replace(/[^0-9]/gi, '');
     var parts = [];
-    // store each strings of length 4 of value into parts
+    // store each strings of length 4 (or lesser when exceed string length) of value into parts
     for (var i = 0; i < v.length ; i += 4) {
-        parts.push(v.substring(i, i+4))
+        parts.push(v.substring(i, i+4));
     }
     // join each string with space in between
-    return parts.join(' ')
+    return parts.join(' ');
   }
 
   onFocus = (e) => {
-    e.preventDefault();
-    this.setState({ focusClass: e.target.parentElement.className })
+    // saving the original className
+    this.setState({ focusClass: e.target.parentElement.className });
+    // adding className for special border on focus
     e.target.parentElement.className += " change-textbox-border";
   }
 
   onBlur = (e) => {
+    // restoring the original className
     e.target.parentElement.className = this.state.focusClass;
   }
 

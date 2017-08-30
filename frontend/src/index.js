@@ -7,7 +7,6 @@ import App from './components/App/App';
 
 // Import CSS
 import './index.css';
-import './animation.css';
 
 // Redux
 import { Provider } from 'react-redux';

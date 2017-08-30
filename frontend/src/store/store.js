@@ -1,14 +1,12 @@
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-import submitReducer from '../reducers/submitReducer';
-import formReducer from '../reducers/formReducer';
+import sampleReducer from '../reducers/sampleReducer';
 
 export let initStore = () => {
 
   const reducer = combineReducers({
-    submit: submitReducer,
-    form: formReducer
+    sample: sampleReducer
   });
 
   const store = createStore( reducer,

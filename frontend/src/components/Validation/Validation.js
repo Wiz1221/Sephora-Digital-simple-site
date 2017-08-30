@@ -40,10 +40,15 @@ class Validation extends Component{
     e.target.parentElement.className += " change-textbox-border";
   }
 
+  // when user leaves this input box, check for valid email, and attach original className
   onBlur = (e) => {
     this.setState({userInputted: true})
     e.target.parentElement.className = this.state.focusClass;
+
+    // check if email have @ and .com (simple presumption that all emails have .com)
     let trigger = e.target.value.indexOf('@')<0 || e.target.value.indexOf('.com')<0 ;
+
+    // if @ or .com cannot be found, set state emailError is true
     trigger? this.setState({ emailError: true }): this.setState({ emailError: false })
   }
 
@@ -51,7 +56,9 @@ class Validation extends Component{
     const {emailError, errorClass, errorClassInnerText, userInputted} = this.state;
     let img = null;
     let msg = null;
+    // check if user have clicked on this input box before
     if(userInputted){
+      // if user have left the box without @ and .com then render the following elements
       if(emailError){
         img = (<img className="side-pic error" src={errorPic} alt="error-pic"/>);
         msg = (<small className="form-text-error">Error: Please enter a valid email address.</small>);
