@@ -8,7 +8,7 @@ import './Rate.css';
 import Star from '../Star/Star';
 
 // Database
-import {firebaseDB} from '../../firebase';
+import firebase from '../../firebase';
 
 class Rate extends Component {
   constructor(props){
@@ -27,7 +27,7 @@ class Rate extends Component {
 
   // saving examiner's rating in my database
   onClick = () => {
-    firebaseDB.ref('/rate').push(this.state.star)
+    firebase.database().ref('/rate').push(this.state.star)
   }
 
   render() {

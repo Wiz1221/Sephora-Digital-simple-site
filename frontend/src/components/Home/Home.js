@@ -11,7 +11,7 @@ import AutoFormatedSpace from '../AutoFormatedSpace/AutoFormatedSpace';
 import DateField from '../DateField/DateField';
 
 // Database
-import {firebaseDB} from '../../firebase';
+import firebase from '../../firebase';
 
 // CSS
 import './Home.css';
@@ -44,8 +44,9 @@ class Home extends Component {
   componentDidUpdate(){
     // form was updated and submit was set to false, save the form in database
     if(!this.state.submit){
-      firebaseDB.ref('/form/'+ uuid.v4()).set(this.state.form)
+      firebase.database().ref('form/').push(this.state.form)
     }
+    window.location.href = "/rate";
   }
 
   // I was trying to go for separate components of each type of input fields
@@ -63,9 +64,9 @@ class Home extends Component {
             <Validation submit={this.state.submit} storeInfo = {this.storeInfo}/>
             <AutoFormatedSpace submit={this.state.submit} storeInfo = {this.storeInfo}/>
             <DateField submit={this.state.submit} storeInfo = {this.storeInfo}/>
-            <Link to='/rate'>
+
               <button className="submit-home" type="submit" onClick={this.onClick}>Submit</button>
-            </Link>
+
           </div>
         </div>
       </div>
