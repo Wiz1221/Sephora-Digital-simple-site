@@ -11,6 +11,17 @@ class MultipleLine extends Component{
     }
   }
 
+  componentWillReceiveProps(nextProps){
+    if(nextProps.submit){
+      this.passInfo()
+    }
+  }
+
+  passInfo = () => {
+    const { multi} = this.state;
+    this.props.storeInfo({multi})
+  }
+
   onChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
   }

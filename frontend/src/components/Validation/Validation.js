@@ -18,6 +18,17 @@ class Validation extends Component{
     }
   }
 
+  componentWillReceiveProps(nextProps){
+    if(nextProps.submit){
+      this.passInfo()
+    }
+  }
+
+  passInfo = () => {
+    const { email} = this.state;
+    this.props.storeInfo({email})
+  }
+
   onChange = (e) => {
     this.setState({[e.target.name]: e.target.value,});
 

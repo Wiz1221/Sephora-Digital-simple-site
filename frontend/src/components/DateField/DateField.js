@@ -15,6 +15,17 @@ class DateField extends Component{
     }
   }
 
+  componentWillReceiveProps(nextProps){
+    if(nextProps.submit){
+      this.passInfo()
+    }
+  }
+
+  passInfo = () => {
+    const {birthDay, birthMonth, birthYear, expiryDay, expiryYear} = this.state;
+    this.props.storeInfo({birthDay, birthMonth, birthYear, expiryDay, expiryYear})
+  }
+
   onChange = (e) => {
     let num = e.target.value.replace(/[^0-9]/gi, '')
     this.setState({ [e.target.name]: num });
@@ -22,7 +33,9 @@ class DateField extends Component{
 
   onFocus = (e) => {
     e.preventDefault();
-    this.setState({ focusClass: e.target.parentElement.className })
+    this.setState({
+      focusClass: e.target.parentElement.className
+     })
     e.target.parentElement.className += " change-textbox-border";
   }
 

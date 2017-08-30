@@ -1,0 +1,29 @@
+#starClearButton {
+  float:right;
+  margin-top: 10px;
+  background: #FF8C70;
+  height: 30px;
+  letter-spacing: 1px;
+  border-radius: 100px;
+  padding: 5px 20px;
+  padding-top: 0;
+  color: #fff;
+  font-size: 1em;
+  font-family: 'Baloo Tammudu', cursive;
+  border: 1px solid #FF8C70;
+  cursor: pointer;
+  outline: none;
+}
+
+#starClearButton:hover {
+  background: #fff;
+  color: #FF8C70;
+}
+
+.star-rating .fa-star-o{
+  color: orange;
+}
+
+.star-rating .fa-star{
+  color: orange;
+}

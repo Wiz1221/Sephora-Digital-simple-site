@@ -9,8 +9,22 @@ class NameField extends Component{
       empty: '',
       filled:'Flora Wong',
       typing: '',
-      focusClass: ''
+      focusClass: '',
+      submit: false
     }
+  }
+
+  componentWillReceiveProps(nextProps){
+    console.log('componentWillReceiveNextProps')
+
+    if(nextProps.submit){
+      this.passInfo()
+    }
+  }
+
+  passInfo = () => {
+    const { empty, filled, typing} = this.state;
+    this.props.storeInfo({empty, filled, typing})
   }
 
   onChange = (e) => {
@@ -28,7 +42,6 @@ class NameField extends Component{
   }
 
   render(){
-
     return(
       <div className="name-field-container component-container">
         <div className="input-field-container">
@@ -76,7 +89,3 @@ class NameField extends Component{
 }
 
 export default NameField;
-
-// <div className="textbox">
-//   <input type="text" name="empty"  placeholder="Name" disabled/>
-// </div>

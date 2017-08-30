@@ -11,6 +11,17 @@ class AutoFormatedSpace extends Component{
     }
   }
 
+componentWillReceiveProps(nextProps){
+  if(nextProps.submit){
+    this.passInfo()
+  }
+}
+
+passInfo = () => {
+  const {creditCardNumber} = this.state;
+  this.props.storeInfo({creditCardNumber})
+}
+
   onChange = (e) => {
     this.setState({ [e.target.name]: this.formatSpace(e.target.value) });
   }

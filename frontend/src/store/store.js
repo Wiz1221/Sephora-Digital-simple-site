@@ -1,15 +1,14 @@
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-// import { routerReducer, routerMiddleware } from 'react-router-redux';
-// import createHistory from 'history/createBrowserHistory';
 
-// Reducers
-// import UserReducer from '../Reducers/UserReducer';
+import submitReducer from '../reducers/submitReducer';
+import formReducer from '../reducers/formReducer';
 
 export let initStore = () => {
 
   const reducer = combineReducers({
-    // user: UserReducer,
+    submit: submitReducer,
+    form: formReducer
   });
 
   const store = createStore( reducer,
